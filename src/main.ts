@@ -1,4 +1,4 @@
-import { Icon } from 'ant-design-vue';
+import { Icon, Row, Col } from 'ant-design-vue';
 import 'swiper/swiper-bundle.css';
 import Vue from 'vue';
 import VueAwesomeSwiper from 'vue-awesome-swiper';
@@ -11,6 +11,8 @@ Vue.config.productionTip = false;
 
 Vue.use(VueAwesomeSwiper);
 Vue.use(Icon);
+Vue.use(Row);
+Vue.use(Col);
 
 new Vue({
   router,

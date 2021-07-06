@@ -1,7 +1,10 @@
 <template>
   <div id="app">
-    <Header />
+    <Header :fixedHeader="fixedHeader" />
     <Preview />
+    <SpecialCategory />
+    <ProductList title="Sản phẩm mới" :list="SanPhamMoiNhat" />
+    <ProductList title="Sản phẩm bán chạy" :list="SanPhamMoiNhat" />
     <!-- <router-view /> -->
   </div>
 </template>
@@ -13,9 +16,26 @@ import { Vue, Component } from 'vue-property-decorator';
   components: {
     Header: () => import('@/layouts/Header.vue'),
     Preview: () => import('@/components/Preview.vue'),
+    SpecialCategory: () => import('@/components/SpecialCategory.vue'),
+    ProductList: () => import('@/components/ProductList.vue'),
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  SanPhamMoiNhat = Array(50);
+  fixedHeader = false;
+
+  created() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll() {
+    this.fixedHeader = window.scrollY > 0;
+  }
+}
 </script>
 
 <style lang="less">

@@ -1,6 +1,5 @@
 <template>
   <div class="preview">
-
     <div class="preview-img">
       <img src="@/assets/banner1.jpg" />
     </div>
@@ -17,7 +16,8 @@ export default class Preview extends Vue {
 
 <style lang="less">
 .preview {
-  margin-top: 12px;
+  position: relative;
+
   img {
     width: 100%;
   }
