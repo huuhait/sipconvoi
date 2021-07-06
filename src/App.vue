@@ -1,32 +1,42 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <Header />
+    <Preview />
+    <!-- <router-view /> -->
   </div>
 </template>
 
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator';
+
+@Component({
+  components: {
+    Header: () => import('@/layouts/Header.vue'),
+    Preview: () => import('@/components/Preview.vue'),
+  },
+})
+export default class App extends Vue {}
+</script>
+
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-#nav {
-  padding: 30px;
+body {
+  line-height: 1.4;
+  font-size: 14px;
+  color: #333d44;
+  background: #fff;
+  letter-spacing: 0.5px;
+  font-family: "NunitoSans", sans-serif;
+  background-color: #fff;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+a {
+  color: #333d44;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 </style>
