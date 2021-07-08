@@ -1,11 +1,8 @@
 <template>
   <div id="app">
     <Header :fixedHeader="fixedHeader" />
-    <Preview />
-    <SpecialCategory />
-    <ProductList title="Sản phẩm mới" :list="SanPhamMoiNhat" />
-    <ProductList title="Sản phẩm bán chạy" :list="SanPhamMoiNhat" />
-    <!-- <router-view /> -->
+    <router-view />
+    <Footer />
   </div>
 </template>
 
@@ -15,13 +12,10 @@ import { Vue, Component } from 'vue-property-decorator';
 @Component({
   components: {
     Header: () => import('@/layouts/Header.vue'),
-    Preview: () => import('@/components/Preview.vue'),
-    SpecialCategory: () => import('@/components/SpecialCategory.vue'),
-    ProductList: () => import('@/components/ProductList.vue'),
+    Footer: () => import('@/layouts/Footer.vue'),
   },
 })
 export default class App extends Vue {
-  SanPhamMoiNhat = Array(50);
   fixedHeader = false;
 
   created() {

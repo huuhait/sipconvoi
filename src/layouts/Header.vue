@@ -8,9 +8,9 @@
             <a-icon type="monitor" /> Hệ thống cửa hàng
           </a>
         </div>
-        <a href="/" class="header-logo">
+        <router-link to="/" class="header-logo">
           <img src="@/assets/logo.png" />
-        </a>
+        </router-link>
         <div class="header-topbar-nav">
           <a class="header-topbar-nav-item">
             <a-icon type="search" />
@@ -23,13 +23,19 @@
     </div>
     <div class="header-nav">
       <div class="header-nav-item">
-        <a href="/"> NỘI Y NAM </a>
+        <router-link to="/danh-muc/noi-y-nam">
+          NỘI Y NAM
+        </router-link>
       </div>
       <div class="header-nav-item">
-        <a href="/"> NỘI Y NỮ </a>
+        <router-link to="/danh-muc/noi-y-nu">
+          NỘI Y NỮ
+        </router-link>
       </div>
       <div class="header-nav-item">
-        <a href="/"> NỘI Y TRẺ NHỎ </a>
+        <router-link to="/danh-muc/noi-y-tre-nho">
+          NỘI Y TRẺ NHỎ
+        </router-link>
       </div>
     </div>
   </div>

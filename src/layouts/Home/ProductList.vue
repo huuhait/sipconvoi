@@ -15,7 +15,7 @@
 import { SanPham } from '@/types';
 import { VueAgile } from 'vue-agile';
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import ProductItem from './ProductItem.vue';
+import ProductItem from '@/components/ProductItem.vue';
 
 @Component({
   components: {

@@ -1,18 +1,25 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <Preview />
+    <SpecialCategory />
+    <ProductList title="Sản phẩm mới" :list="SanPhamMoiNhat" />
+    <ProductList title="Sản phẩm bán chạy" :list="SanPhamMoiNhat" />
+    <Register />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
 
 @Component({
   components: {
-    HelloWorld,
+    Preview: () => import('@/layouts/Home/Preview.vue'),
+    SpecialCategory: () => import('@/layouts/Home/SpecialCategory.vue'),
+    ProductList: () => import('@/layouts/Home/ProductList.vue'),
+    Register: () => import('@/layouts/Home/Register.vue'),
   },
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  SanPhamMoiNhat = Array(50);
+}
 </script>
