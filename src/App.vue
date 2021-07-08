@@ -26,6 +26,14 @@ export default class App extends Vue {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
+  mounted() {
+    const path = localStorage.getItem('path');
+    if (path) {
+      localStorage.removeItem('path');
+      this.$router.push(path);
+    }
+  }
+
   handleScroll() {
     this.fixedHeader = window.scrollY > 0;
   }
