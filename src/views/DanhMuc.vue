@@ -18,10 +18,13 @@ export default class DanhMuc extends Vue {
   get title() {
     switch (this.$route.params.name as string) {
       case 'noi-y-nam':
+        document.title = 'Nội y nam - Sịp con voi';
         return 'Nội y nam';
       case 'noi-y-nu':
+        document.title = 'Nội y nữ - Sịp con voi';
         return 'Nội y nữ';
       case 'noi-y-tre-nho':
+        document.title = 'Nội y trẻ nhỏ - Sịp con voi';
         return 'Nội y trẻ nhỏ';
       default:
         return '';

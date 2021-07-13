@@ -15,7 +15,7 @@ import { Component, Vue } from 'vue-property-decorator';
   components: {
     Preview: () => import('@/layouts/Home/Preview.vue'),
     SpecialCategory: () => import('@/layouts/Home/SpecialCategory.vue'),
-    ProductList: () => import('@/layouts/Home/ProductList.vue'),
+    ProductList: () => import('@/components/ProductList.vue'),
     Register: () => import('@/layouts/Home/Register.vue'),
   },
 })

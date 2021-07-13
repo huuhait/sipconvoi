@@ -53,4 +53,8 @@ a {
   transition: all 0.3s ease;
   text-decoration: none;
 }
+
+button {
+  cursor: pointer;
+}
 </style>
