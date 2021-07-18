@@ -1,35 +1,47 @@
 <template>
   <div class="product-item">
-    <router-link to="/san-pham/abc" class="product-item-image">
+    <router-link :to="{
+      name: 'SanPham',
+      params: {
+        code: item.code
+      }
+    }" class="product-item-image">
       <div class="box-see">
-        XEM NHANH
+        XEM NGAY
       </div>
+      <img :src="images[0]" :alt="item.name + ' - sipconvoi.com'" :title="item.name + ' - sipconvoi.com'" />
     </router-link>
     <div class="product-item-details">
       <div class="product-item-name">
-        <router-link to="/san-pham/abc">
-          Hentaiz
+        <router-link :to="{
+          name: 'SanPham',
+          params: {
+            code: item.code
+          }
+        }">
+          {{ item.name }}
         </router-link>
       </div>
       <div class="product-item-price">
-        100.000đ
+        {{ item.price }}
       </div>
       <div class="product-item-code">
-        MABC-125
+        {{ item.code }}
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator';
+import { SanPham } from '@/types';
+import { Vue, Component, Prop } from 'vue-property-decorator';
 
 @Component
 export default class ProductItem extends Vue {
-  mounted() {
-    document.title = 'Bộ short VERA hai dây satin phối ren - 0128';
-    // eslint-disable-next-line no-unused-expressions
-    document.querySelector('meta[name="description"]')?.setAttribute('content', 'Vừa quyến rũ lại vừa thoải mái chính là điều khiến các nàng cực kỳ yêu thích bộ đồ ngủ quần ngắn này. Vera đã khéo léo thiết kế phần dây áo dễ điều chỉnh kết hợp viền ren nhẹ nhàng ở phần cổ áo lẫn chân quần short mang lại vẻ quyến rũ và tinh tế đến không ngờ.');
+  @Prop() readonly item!: SanPham;
+
+  get images() {
+    return this.item.images.split('\n').map((img) => img.replace('- ', ''));
   }
 }
 </script>

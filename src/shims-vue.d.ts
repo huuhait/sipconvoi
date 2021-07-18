@@ -24,6 +24,11 @@ declare module '*.svg' {
   export default content;
 }
 
+declare module '*.json' {
+  const value: any;
+  export default value;
+}
+
 interface SanPham {
   MaSanPham: string;
 }

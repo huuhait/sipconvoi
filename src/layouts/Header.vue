@@ -22,20 +22,27 @@
       </div>
     </div>
     <div class="header-nav">
-      <div class="header-nav-item">
-        <router-link to="/danh-muc/noi-y-nam">
-          NỘI Y NAM
-        </router-link>
-      </div>
-      <div class="header-nav-item">
-        <router-link to="/danh-muc/noi-y-nu">
-          NỘI Y NỮ
-        </router-link>
-      </div>
-      <div class="header-nav-item">
-        <router-link to="/danh-muc/noi-y-tre-nho">
-          NỘI Y TRẺ NHỎ
-        </router-link>
+      <div class="container-fluid">
+        <div class="header-nav-item">
+          <router-link to="/danh-muc/quan-lot-nam">
+            QUẦN LÓT NAM
+          </router-link>
+        </div>
+        <div class="header-nav-item">
+          <router-link to="/danh-muc/quan-lot-nu">
+            QUẦN LÓT NỮ
+          </router-link>
+        </div>
+        <div class="header-nav-item">
+          <router-link to="/danh-muc/quan-lot-tre-em">
+            QUẦN LÓT TRẺ EM
+          </router-link>
+        </div>
+        <div class="header-nav-item">
+          <a href="/blog" target="blog">
+            BLOG
+          </a>
+        </div>
       </div>
     </div>
   </div>

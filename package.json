@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@vue/composition-api": "^1.0.0-rc.14",
     "ant-design-vue": "^1.7.6",
     "babel-plugin-import": "^1.13.3",
     "babel-plugin-transform-vue-jsx": "^3.7.0",

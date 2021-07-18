@@ -5,7 +5,7 @@
         {{ title }}
       </div>
       <VueAgile :slidesToShow="4" :navButtons="false">
-        <ProductItem v-for="(item, index) in list" :key="index" />
+        <ProductItem v-for="(item, index) in list" :key="index" :item="item" />
       </VueAgile>
     </div>
   </div>

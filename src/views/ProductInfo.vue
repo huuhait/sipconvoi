@@ -2,17 +2,17 @@
   <div class="product-info">
     <div class="container-fluid">
       <div class="product-info-preview">
-        <img src="@/assets/vera-bo-nu-vbcs0128-hong-v0128-p1os00_1024x1024.jpg" />
+        <img :src="images[0]" :alt="san_pham.name + ' - sipconvoi.com'" :title="san_pham.name + ' - sipconvoi.com'" />
       </div>
       <div class="product-info-details">
         <div class="product-info-details-title">
-          Bộ short VERA hai dây satin phối ren - 0128
+          {{ san_pham.name }} - {{ san_pham.code }}
         </div>
         <div class="product-info-details-code">
-          Mã SP: P04
+          Mã SP: {{ san_pham.code }}
         </div>
         <div class="product-info-details-price">
-          299,000 ₫
+          {{ san_pham.price }}
         </div>
         <div class="product-info-details-size">
           <div class="product-info-details-size-title">Size: </div>
@@ -37,7 +37,7 @@
             Mô tả sản phẩm
           </div>
           <div class="content">
-            Vừa quyến rũ lại vừa thoải mái chính là điều khiến các nàng cực kỳ yêu thích bộ đồ ngủ quần ngắn này. Vera đã khéo léo thiết kế phần dây áo dễ điều chỉnh kết hợp viền ren nhẹ nhàng ở phần cổ áo lẫn chân quần short mang lại vẻ quyến rũ và tinh tế đến không ngờ.
+            {{ san_pham.description }}
           </div>
         </div>
         <div class="help">
@@ -70,6 +70,8 @@
 </template>
 
 <script lang="ts">
+import { SanPham } from '@/types';
+import controllers from '@/controllers';
 import { Vue, Component } from 'vue-property-decorator';
 
 @Component({
@@ -82,8 +84,36 @@ export default class ProductInfo extends Vue {
     return this.$route.params.code;
   }
 
+  get images() {
+    return this.san_pham.images.split('\n').map((img) => img.replace('- ', ''));
+  }
+
+  get san_pham() {
+    return controllers.items.find((item) => item.code === this.code) as SanPham;
+  }
+
   get lstSanPham() {
-    return Array(50);
+    const lstSP = controllers.items.filter((item) => {
+      // eslint-disable-next-line no-restricted-syntax
+      for (const f of item.categorys.split(',')) {
+        // eslint-disable-next-line no-restricted-syntax
+        for (const c of this.san_pham.categorys.split(',')) {
+          // eslint-disable-next-line eqeqeq
+          if (f == c) return true;
+        }
+      }
+
+      return false;
+    });
+
+    return controllers.shuffleArray(lstSP);
+  }
+
+  mounted() {
+    console.log(this.san_pham);
+    document.title = `${this.san_pham.name} - ${this.san_pham.code} - Sịp con voi`;
+    // eslint-disable-next-line no-unused-expressions
+    document.querySelector('meta[name="description"]')?.setAttribute('content', this.san_pham.description);
   }
 }
 </script>
@@ -137,12 +167,15 @@ export default class ProductInfo extends Vue {
   }
 
   &-preview {
+    width: 625px;
+
     img {
       width: 100%;
     }
   }
 
   &-details {
+    width: calc(100% - 625px);
     padding-left: 20px;
 
     &-title {

@@ -51,8 +51,8 @@
               </a>
             </div>
             <div class="footer-item">
-              <a href="#">
-                Thông tin doanh nghiệp
+              <a href="/blog">
+                Blog
               </a>
             </div>
           </a-col>

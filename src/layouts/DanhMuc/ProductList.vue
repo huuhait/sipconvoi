@@ -5,7 +5,7 @@
         {{ title }}
       </div>
       <div class="product-list-content">
-        <ProductItem v-for="(item, index) in list" :key="index" />
+        <ProductItem v-for="(item, index) in list" :key="index" :item="item" />
       </div>
     </div>
   </div>

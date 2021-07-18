@@ -1,3 +1,8 @@
 export interface SanPham {
-  MaSanPham: string;
+  name: string;
+  code: string;
+  description: string;
+  price: string;
+  images: string;
+  categorys: string;
 }

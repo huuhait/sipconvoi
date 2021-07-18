@@ -19,5 +19,7 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     'class-methods-use-this': 'off',
+    'import/no-named-as-default': 'off',
+    camelcase: 'off',
   },
 };

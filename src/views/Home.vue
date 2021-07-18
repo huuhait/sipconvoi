@@ -3,12 +3,13 @@
     <Preview />
     <SpecialCategory />
     <ProductList title="Sản phẩm mới" :list="SanPhamMoiNhat" />
-    <ProductList title="Sản phẩm bán chạy" :list="SanPhamMoiNhat" />
+    <ProductList title="Sản phẩm bán chạy" :list="SanPhamBanChay" />
     <Register />
   </div>
 </template>
 
 <script lang="ts">
+import controllers from '@/controllers';
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
@@ -20,6 +21,12 @@ import { Component, Vue } from 'vue-property-decorator';
   },
 })
 export default class Home extends Vue {
-  SanPhamMoiNhat = Array(50);
+  SanPhamMoiNhat = controllers.items;
+  SanPhamBanChay = controllers.items;
+
+  mounted() {
+    this.SanPhamMoiNhat = controllers.shuffleArray([...this.SanPhamMoiNhat]);
+    this.SanPhamBanChay = controllers.shuffleArray([...this.SanPhamBanChay]);
+  }
 }
 </script>
