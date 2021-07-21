@@ -21,5 +21,6 @@ module.exports = {
     'class-methods-use-this': 'off',
     'import/no-named-as-default': 'off',
     camelcase: 'off',
+    'linebreak-style': 'off',
   },
 };
